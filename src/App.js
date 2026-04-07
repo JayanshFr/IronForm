@@ -34,6 +34,10 @@ function App() {
           <ExerciseCard key={ex.id} ex={ex} />
         ))}
       </main>
+
+      <footer style={{ textAlign: 'center', marginTop: '4rem', color: 'var(--text-secondary)' }}>
+        <p>Stay Consistent. Stay Strong. 💪</p>
+      </footer>
     </div>
   );
 }
