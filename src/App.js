@@ -17,23 +17,25 @@ function App() {
         <p>Workout guide for athletes.</p>
       </header>
 
-      <nav className="filter-nav">
-        {['All', 'Push', 'Pull', 'Legs'].map(cat => (
-          <button 
-            key={cat} 
-            className={`filter-btn ${filter === cat ? 'active' : ''}`} 
-            onClick={() => setFilter(cat)}
-          >
-            {cat}
-          </button>
-        ))}
-      </nav>
+      <div className="content-layout">
+        <nav className="filter-nav">
+          {['All', 'Push', 'Pull', 'Legs'].map(cat => (
+            <button 
+              key={cat} 
+              className={`filter-btn ${filter === cat ? 'active' : ''}`} 
+              onClick={() => setFilter(cat)}
+            >
+              {cat}
+            </button>
+          ))}
+        </nav>
 
-      <main className="exercise-grid">
-        {filteredExercises.map(ex => (
-          <ExerciseCard key={ex.id} ex={ex} />
-        ))}
-      </main>
+        <main className="exercise-list">
+          {filteredExercises.map(ex => (
+            <ExerciseCard key={ex.id} ex={ex} />
+          ))}
+        </main>
+      </div>
 
       <footer style={{ textAlign: 'center', marginTop: '4rem', color: 'var(--text-secondary)' }}>
         <p>Stay Consistent. Stay Strong. 💪</p>
