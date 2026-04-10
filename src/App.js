@@ -2,10 +2,12 @@ import React, { useState } from 'react';
 import './App.css';
 import { EXERCISES } from './data/exercises';
 import ExerciseCard from './components/ExerciseCard';
+import ExerciseDetail from './components/ExerciseDetail';
 import Snowfall from 'react-snowfall';
 
 function App() {
   const [filter, setFilter] = useState('All');
+  const [selectedExercise, setSelectedExercise] = useState(null);
 
   const filterOptions = [
     'All', 'Push', 'Pull', 'Legs', 
@@ -30,25 +32,29 @@ function App() {
         <p>Workout guide for athletes.</p>
       </header>
 
-      <div className="content-layout">
-        <nav className="filter-nav">
-          {filterOptions.map(cat => (
-            <button 
-              key={cat} 
-              className={`filter-btn ${filter === cat ? 'active' : ''}`} 
-              onClick={() => setFilter(cat)}
-            >
-              {cat}
-            </button>
-          ))}
-        </nav>
+      {selectedExercise ? (
+        <ExerciseDetail ex={selectedExercise} onBack={() => setSelectedExercise(null)} />
+      ) : (
+        <div className="content-layout">
+          <nav className="filter-nav">
+            {filterOptions.map(cat => (
+              <button 
+                key={cat} 
+                className={`filter-btn ${filter === cat ? 'active' : ''}`} 
+                onClick={() => setFilter(cat)}
+              >
+                {cat}
+              </button>
+            ))}
+          </nav>
 
-        <main className="exercise-list">
-          {filteredExercises.map(ex => (
-            <ExerciseCard key={ex.id} ex={ex} />
-          ))}
-        </main>
-      </div>
+          <main className="exercise-list">
+            {filteredExercises.map(ex => (
+              <ExerciseCard key={ex.id} ex={ex} onSelect={() => setSelectedExercise(ex)} />
+            ))}
+          </main>
+        </div>
+      )}
 
       <footer style={{ textAlign: 'center', marginTop: '4rem', color: 'var(--text-secondary)' }}>
         <p>Stay Consistent. Stay Strong. 💪</p>

@@ -205,3 +205,93 @@ body {
   color: var(--k-green-neon);
   border: 1px solid var(--k-green-dark);
 }
+
+/* Details Page */
+.exercise-detail {
+  background: var(--card-dark);
+  border-radius: 12px;
+  padding: 3rem;
+  box-shadow: var(--shadow-main);
+  border: 1px solid rgba(255,255,255,0.05);
+  animation: fadeIn 0.4s ease forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.back-btn {
+  background: transparent;
+  border: none;
+  color: var(--k-green-base);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-bottom: 2rem;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  transition: color 0.3s ease;
+}
+
+.back-btn:hover {
+  color: var(--text-primary);
+}
+
+.detail-layout {
+  display: flex;
+  gap: 3rem;
+  align-items: flex-start;
+}
+
+.detail-video-wrapper {
+  flex: 1;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  border: 1px solid rgba(255,255,255,0.05);
+}
+
+.detail-video {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  display: block;
+}
+
+.detail-info {
+  flex: 1;
+}
+
+.detail-info h2 {
+  font-size: 2.5rem;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+}
+
+.instructions {
+  margin-top: 2rem;
+  background: rgba(0,0,0,0.2);
+  padding: 1.5rem;
+  border-radius: 8px;
+}
+
+.instructions h3 {
+  color: var(--k-green-base);
+  margin-top: 0;
+}
+
+.instructions p, .instructions ul {
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.instructions li {
+  margin-bottom: 0.5rem;
+}
+
+/* Update original card for pointer */
+.exercise-card {
+  cursor: pointer;
+}

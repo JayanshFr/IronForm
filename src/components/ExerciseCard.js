@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const ExerciseCard = ({ ex }) => {
+const ExerciseCard = ({ ex, onSelect }) => {
   // Only load the iframe after the user hovers over the card for the first time
   const [hasHovered, setHasHovered] = useState(false);
   
@@ -12,6 +12,7 @@ const ExerciseCard = ({ ex }) => {
       className="exercise-card"
       onMouseEnter={() => setHasHovered(true)}
       onMouseLeave={() => setHasHovered(false)}
+      onClick={onSelect}
     >
       <div className="media-wrapper">
         <img src={ex.thumbnail} alt={ex.name} className="card-thumbnail" />
