@@ -11,6 +11,7 @@ const ExerciseCard = ({ ex }) => {
     <div 
       className="exercise-card"
       onMouseEnter={() => setHasHovered(true)}
+      onMouseLeave={() => setHasHovered(false)}
     >
       <div className="media-wrapper">
         <img src={ex.thumbnail} alt={ex.name} className="card-thumbnail" />
@@ -27,7 +28,7 @@ const ExerciseCard = ({ ex }) => {
       <div className="card-info">
         <h3>{ex.name}</h3>
         <div className="meta-info">
-          <span className="badge category-badge">{ex.category}</span>
+          <span className="badge category-badge">{ex.categories[0]}</span>
           <span className="badge muscle-badge">{ex.muscle}</span>
         </div>
       </div>
